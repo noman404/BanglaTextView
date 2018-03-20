@@ -1,7 +1,7 @@
 [![](https://jitpack.io/v/noman404/BanglaTextView.svg)](https://jitpack.io/#noman404/BanglaTextView)
 
-# BanglaTextView
-Convert certain types of text pattern to Bangla text, i.e. Number, Date, Ordinal Indicator, Month, Year and more. Originally created several years ago https://github.com/noman404/ToBangla in eclipse era.
+## **Preview**
+![Sample](https://github.com/noman404/BanglaTextView/blob/master/snap/snap1.png?raw=true)
 
 # **Dependencies**
 
@@ -12,8 +12,6 @@ Convert certain types of text pattern to Bangla text, i.e. Number, Date, Ordinal
  
      `implementation 'com.github.noman404:BanglaTextView:1.0.2'`
 
-## **Preview**
-![Sample](https://github.com/noman404/BanglaTextView/blob/master/snap/snap1.png?raw=true)
 ## **Usage**
 
 From *.xml*
