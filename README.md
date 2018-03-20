@@ -13,7 +13,7 @@ Convert certain types of text pattern to Bangla text, i.e. Number, Date, Ordinal
      `implementation 'com.github.noman404:BanglaTextView:1.0.2'`
 
 ## **Preview**
-
+![Sample](https://github.com/noman404/BanglaTextView/blob/master/snap/snap1.png?raw=true)
 ## **Usage**
 
 From *.xml*
