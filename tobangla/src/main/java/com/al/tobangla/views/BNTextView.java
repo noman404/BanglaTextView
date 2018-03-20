@@ -2,6 +2,7 @@ package com.al.tobangla.views;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
@@ -25,6 +26,7 @@ public class BNTextView extends AppCompatTextView {
     private ProcessType processType;
     private final ToBN toBN = ToBN.getInstance();
     private final String WHITE_SPACE = " ";
+    private final String PATTERN_MISSING_EXCEPTION = "Required Text Pattern Missing";
 
     public void setProcessType(ProcessType processType) {
         this.processType = processType;
@@ -99,7 +101,13 @@ public class BNTextView extends AppCompatTextView {
                 return;
 
             case ORDINAL_INDICATOR_FOR_DATE:
-                super.setText(toBN.getOrdinalIndicator(text, ORDINAL_INDICATOR_FOR_DATE));
+                try {
+                    String date = getOrdinalDate(text);
+                    super.setText(date);
+
+                } catch (Exception e) {
+                    super.setText(PATTERN_MISSING_EXCEPTION + e.getMessage());
+                }
                 return;
 
             case ORDINAL_INDICATOR_FOR_NUMERIC_ORDER:
@@ -126,6 +134,20 @@ public class BNTextView extends AppCompatTextView {
                 super.setText(text);
 
         }
+    }
+
+    @NonNull
+    private String getOrdinalDate(String text) {
+        String[] dates = new String[3];//YYYY-/.MM-/.DD
+
+        if (text.contains("-")) {
+            dates = text.split("-");
+        } else if (text.contains("/")) {
+            dates = text.split("/");
+        } else if (text.contains(".")) {
+            dates = text.split(".");
+        }
+        return (toBN.getOrdinalIndicator(dates[2], ORDINAL_INDICATOR_FOR_DATE) + " " + toBN.getMonthByNumber(dates[1]) + ", " + toBN.getNumber(dates[0]));
     }
 
 
