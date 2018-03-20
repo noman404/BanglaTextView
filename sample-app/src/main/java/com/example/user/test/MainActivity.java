@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         BNTextView bnTextView = new BNTextView(this);
         bnTextView.setProcessType(ProcessType.ORDINAL_INDICATOR_FOR_DATE);
-        bnTextView.setText("1999/05/27");
+        bnTextView.setText("1952/02/21");
 
         LinearLayout parentLayout = findViewById(R.id.parent);
         parentLayout.addView(bnTextView);
