@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="BNTextView">
+        <attr name="processType">
+            <enum name="date" value="0" />
+            <enum name="number" value="1" />
+            <enum name="time" value="2" />
+            <enum name="amount" value="3" />
+            <enum name="ordinalIndicatorForDate" value="4" />
+            <enum name="ordinalIndicatorForNumeric" value="5" />
+            <enum name="ordinalIndicatorToday" value="6" />
+            <enum name="today" value="7" />
+            <enum name="timeNow" value="8" />
+            <enum name="nowDateTime" value="9" />
+        </attr>
+    </declare-styleable>
+</resources>
