@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 import com.al.tobangla.utils.ProcessType;
 import com.al.tobangla.views.BNTextView;
 
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
