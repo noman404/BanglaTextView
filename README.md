@@ -1,4 +1,5 @@
 [![](https://jitpack.io/v/noman404/BanglaTextView.svg)](https://jitpack.io/#noman404/BanglaTextView)
+[![Build Status](https://travis-ci.org/noman404/BanglaTextView.svg?branch=master)](https://travis-ci.org/noman404/BanglaTextView)
 
 ## **Preview**
 ![Sample](https://github.com/noman404/BanglaTextView/blob/master/snap/sample.png?raw=true)
