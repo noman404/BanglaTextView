@@ -1,12 +1,12 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    compileSdkVersion project.ext.compileSdkVersion
+    buildToolsVersion project.ext.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 17
-        targetSdkVersion 26
+        minSdkVersion project.ext.minSdkVersion
+        targetSdkVersion project.ext.targetSdkVersion
 
     }
     buildTypes {
@@ -18,9 +18,9 @@ android {
 }
 
 dependencies {
-    implementation "com.android.support:appcompat-v7:26.0.2"
+    implementation "com.android.support:appcompat-v7:" + project.ext.supportAppcompat
 
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    testImplementation 'junit:junit:'+project.ext.junit
+    androidTestImplementation 'com.android.support.test:runner:'+project.ext.testRunner
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:'+project.ext.espresso
 }

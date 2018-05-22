@@ -23,6 +23,17 @@ allprojects {
         maven { url 'https://jitpack.io' }
 
     }
+
+    project.ext {
+        compileSdkVersion = 26
+        buildToolsVersion = '26.0.2'
+        minSdkVersion = 17
+        targetSdkVersion = 26
+        supportAppcompat = '26.1.0'
+        junit = '4.12'
+        testRunner = '1.0.1'
+        espresso = '3.0.1'
+    }
 }
 
 task clean(type: Delete) {
