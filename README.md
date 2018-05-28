@@ -13,7 +13,7 @@
      `maven { url 'https://jitpack.io' }`
 - in application level *build.gradle* add the *BanglaTextView* dependency
  
-     `implementation 'com.github.noman404:BanglaTextView:1.0.3'`
+     `implementation 'com.github.noman404:BanglaTextView:1.0.4'`
 
 ## **Usage**
 
@@ -39,6 +39,7 @@ From Java
  - Time
  - Ordinal Indicator (Date, Number, Today)
  - Current Date, Time
+ - Distance, Weight units
 
 |Process Type  | Flag | Output|
 |--|--|--|
@@ -51,3 +52,5 @@ From Java
 |Number Ordinal Indicator  |ORDINAL\_INDICATOR\_FOR\_NUMERIC\_ORDER  |১৩ তম|
 |Today Ordinal Indicator  | ORDINAL\_INDICATOR\_TODAY |০৭/০৫/২০১৮|
 |Current Time | TIME_NOW |১২:০৯:২৫|
+|Distance|DISTANCE|২১ কিলোমিটার|
+|Weight|WEIGHT|২.৫ কেজি|
