@@ -4,7 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.al.tobangla.processor.ToBN;
 import com.al.tobangla.utils.ProcessType;
 import com.al.tobangla.views.BNTextView;
 
@@ -17,6 +19,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         byProgrammatically();
+
+        try {
+
+            usingTheConverter();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void usingTheConverter() throws Exception {
+
+        TextView tvUom = ((TextView) findViewById(R.id.tvUom));
+
+        tvUom.setText(ToBN.getInstance().getWeight("1.97 KG"));
+        tvUom.append("\n" + ToBN.getInstance().getDistance(".135 KM"));
     }
 
     private void byProgrammatically() {

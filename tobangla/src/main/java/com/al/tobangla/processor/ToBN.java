@@ -10,8 +10,10 @@ import java.util.Locale;
 
 /**
  * Created by Noman on 15/6/2015.
+ *
  * @author al.noman.uap@gmail.com
- * @see en-us to bn conversions date, time, calendar, ordinal indicator, amount, numbers
+ *
+ * Converter class that provide conversion methods to achieve the BN data
  */
 public class ToBN {
 
@@ -389,6 +391,133 @@ public class ToBN {
     */
     public String getNumber(final String number) {
         return changeByChar(number);
+    }
+
+    /*
+    * @param EN format of weight as string EN-US
+    * @return in BN format
+    */
+    public String getWeight(String text) throws Exception {
+        try {
+            text = text.replace(" ", "");
+            String[] part = text.split("(?<=[0-9])(?=[a-zA-Z])");
+            StringBuilder converted = new StringBuilder("");
+
+            if (part[0].trim().matches("[0-9.]*")) {
+                converted.append(getNumber(part[0])).append(" ");
+            } else {
+                return text;
+            }
+
+            if (!part[1].trim().matches("[0-9.]*")) {
+                converted.append(convertWeightUnit(part[1]));
+            } else {
+                return text;
+            }
+
+            return converted.toString();
+
+        } catch (Exception error) {
+            throw new Exception("Couldn't Parse the Format");
+        }
+    }
+
+    /*
+    * @param EN format of weight unit as string EN-US
+    * @return in BN format's unit
+    */
+    public String convertWeightUnit(String weight) {
+
+        switch (weight.toLowerCase()) {
+
+            case "g":
+            case "gram":
+            case "gm":
+            case "g.m.":
+                return "গ্রাম";
+
+            case "mg":
+            case "milligram":
+            case "m.g.":
+                return "মি:গ্রা:";
+
+
+            case "kg":
+            case "k.g.":
+                return "কেজি";
+
+            case "kilogram":
+                return "কিলোগ্রাম";
+
+            case "l":
+            case "litre":
+                return "লিটার";
+
+            default:
+                return weight;
+
+        }
+    }
+
+    /*
+    * @param EN format of distance as string EN-US
+    * @return in BN format
+    */
+    public String getDistance(String text) throws Exception {
+        try {
+            text = text.replace(" ", "");
+            String[] part = text.split("(?<=[0-9])(?=[a-zA-Z])");
+            StringBuilder converted = new StringBuilder("");
+
+            if (part[0].matches("[0-9.]*")) {
+                converted.append(getNumber(part[0])).append(" ");
+            } else {
+                return text;
+            }
+
+            if (!part[1].matches("[0-9.]*")) {
+                converted.append(convertDistanceUnit(part[1]));
+            } else {
+                return text;
+            }
+
+            return converted.toString();
+
+        } catch (Exception error) {
+            throw new Exception("Couldn't Parse the Format");
+        }
+    }
+
+    /*
+   * @param EN format of distance unit as string EN-US
+   * @return in BN format's unit
+   */
+    public String convertDistanceUnit(String weight) {
+
+        switch (weight.toLowerCase()) {
+
+            case "metre":
+            case "m":
+                return "মিটার";
+
+            case "km":
+            case "k.m.":
+                return "কি:মি:";
+
+            case "Kilometer":
+                return "কিলোমিটার";
+
+            case "cm":
+            case "c.m.":
+                return "সে:মি:";
+
+            case "centimeter":
+                return "সেন্টিমিটার";
+
+            default:
+                return weight;
+
+        }
     }
 
 }

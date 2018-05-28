@@ -23,11 +23,11 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    implementation 'com.android.support:appcompat-v7:'+ project.ext.supportAppcompat
+    implementation 'com.android.support:appcompat-v7:' + project.ext.supportAppcompat
 
-    testImplementation 'junit:junit:'+project.ext.junit
-    androidTestImplementation 'com.android.support.test:runner:'+project.ext.testRunner
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:'+project.ext.espresso
+    testImplementation 'junit:junit:' + project.ext.junit
+    androidTestImplementation 'com.android.support.test:runner:' + project.ext.testRunner
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:' + project.ext.espresso
 
     compile project(':tobangla')
 //    implementation 'com.github.noman404:BanglaTextView:1.0.2'

@@ -20,7 +20,7 @@ android {
 dependencies {
     implementation "com.android.support:appcompat-v7:" + project.ext.supportAppcompat
 
-    testImplementation 'junit:junit:'+project.ext.junit
-    androidTestImplementation 'com.android.support.test:runner:'+project.ext.testRunner
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:'+project.ext.espresso
+    testImplementation 'junit:junit:' + project.ext.junit
+    androidTestImplementation 'com.android.support.test:runner:' + project.ext.testRunner
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:' + project.ext.espresso
 }
