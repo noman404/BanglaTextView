@@ -13,7 +13,7 @@
      `maven { url 'https://jitpack.io' }`
 - in application level *build.gradle* add the *BanglaTextView* dependency
  
-     `implementation 'com.github.noman404:BanglaTextView:1.0.2'`
+     `implementation 'com.github.noman404:BanglaTextView:1.0.3'`
 
 ## **Usage**
 
