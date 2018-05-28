@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 
 import com.al.tobangla.utils.ProcessType;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -397,7 +398,7 @@ public class ToBN {
     * @param EN format of weight as string EN-US
     * @return in BN format
     */
-    public String getWeight(String text) throws Exception {
+    public String getWeight(String text) {
         try {
             text = text.replace(" ", "");
             String[] part = text.split("(?<=[0-9])(?=[a-zA-Z])");
@@ -418,7 +419,7 @@ public class ToBN {
             return converted.toString();
 
         } catch (Exception error) {
-            throw new Exception("Couldn't Parse the Format");
+           return text;
         }
     }
 
@@ -463,7 +464,7 @@ public class ToBN {
     * @param EN format of distance as string EN-US
     * @return in BN format
     */
-    public String getDistance(String text) throws Exception {
+    public String getDistance(String text) {
         try {
             text = text.replace(" ", "");
             String[] part = text.split("(?<=[0-9])(?=[a-zA-Z])");
@@ -484,7 +485,7 @@ public class ToBN {
             return converted.toString();
 
         } catch (Exception error) {
-            throw new Exception("Couldn't Parse the Format");
+            return text;
         }
     }
 

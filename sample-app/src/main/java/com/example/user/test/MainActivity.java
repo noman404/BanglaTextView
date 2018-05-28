@@ -18,18 +18,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        usingTheConverter();
         byProgrammatically();
 
-        try {
-
-            usingTheConverter();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
-    private void usingTheConverter() throws Exception {
+    private void usingTheConverter() {
 
         TextView tvUom = ((TextView) findViewById(R.id.tvUom));
 

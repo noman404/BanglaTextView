@@ -13,6 +13,8 @@
             <enum name="today" value="7" />
             <enum name="timeNow" value="8" />
             <enum name="nowDateTime" value="9" />
+            <enum name="distance" value="10" />
+            <enum name="weight" value="11" />
         </attr>
     </declare-styleable>
 </resources>

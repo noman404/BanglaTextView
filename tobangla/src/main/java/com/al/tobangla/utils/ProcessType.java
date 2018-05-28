@@ -17,7 +17,8 @@ public enum ProcessType {
     TODAY(7),
     TIME_NOW(8),
     NOW_DATE_TIME(9),
-
+    DISTANCE(10),
+    WEIGHT(11),
     DEFAULT(-1);
 
     int value;

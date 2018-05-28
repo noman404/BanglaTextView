@@ -46,7 +46,7 @@ public class BNTextView extends AppCompatTextView {
         init(context, attrs);
     }
 
-    public BNTextView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public BNTextView(Context context, AttributeSet attrs, int defStyleAttr){
         super(context, attrs, defStyleAttr);
 
         init(context, attrs);
@@ -128,6 +128,14 @@ public class BNTextView extends AppCompatTextView {
 
             case NOW_DATE_TIME:
                 super.setText(toBN.getTodayDate() + WHITE_SPACE + toBN.getCurrentTime());
+                return;
+
+            case DISTANCE:
+                super.setText(toBN.getDistance(text));
+                return;
+
+            case WEIGHT:
+                super.setText(toBN.getWeight(text));
                 return;
 
             default:

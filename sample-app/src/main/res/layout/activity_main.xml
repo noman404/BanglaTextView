@@ -53,6 +53,20 @@
         android:textSize="24sp"
         toBangla:processType="ordinalIndicatorToday" />
 
+    <com.al.tobangla.views.BNTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:text="25 kg"
+        toBangla:processType="weight" />
+
+    <com.al.tobangla.views.BNTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:text="2.53km"
+        toBangla:processType="distance" />
+
     <TextView
         android:id="@+id/tvUom"
         android:layout_width="wrap_content"
