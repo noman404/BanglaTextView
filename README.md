@@ -30,6 +30,10 @@ From Java
     BNTextView bnTextView = new BNTextView(this);  
     bnTextView.setProcessType(ProcessType.AMOUNT);  
     bnTextView.setText("21.00");
+    
+Direct Process 
+
+`ToBN` also provide the direct access of it's underhood methods to to achieve more complex processing/convertion. [Please have a look @Sample](https://github.com/noman404/BanglaTextView/tree/master/sample-app)
 
 ## **Supported Conversions**
 
@@ -54,3 +58,5 @@ From Java
 |Current Time | TIME_NOW |১২:০৯:২৫|
 |Distance|DISTANCE|২১ কিলোমিটার|
 |Weight|WEIGHT|২.৫ কেজি|
+
+## **Run the sample project and have a look there.**
