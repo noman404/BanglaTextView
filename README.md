@@ -45,18 +45,18 @@ Direct Process
  - Current Date, Time
  - Distance, Weight units
 
-|Process Type  | Flag | Output|
-|--|--|--|
-|Date | DATE |২০১৮-০৫-০৭|
-|Number| NUMBER |৭৫|
-|Time| TIME |০৫:০৭|
-|Amount | AMOUNT |৳ ৫৭|
-|Today | TODAY |রবিবার|
-|Date Ordinal Indicator  | ORDINAL\_INDICATOR\_FOR_DATE |১৬ই ডিসেম্বর, ১৯৭১|
-|Number Ordinal Indicator  |ORDINAL\_INDICATOR\_FOR\_NUMERIC\_ORDER  |১৩ তম|
-|Today Ordinal Indicator  | ORDINAL\_INDICATOR\_TODAY |০৭/০৫/২০১৮|
-|Current Time | TIME_NOW |১২:০৯:২৫|
-|Distance|DISTANCE|২১ কিলোমিটার|
-|Weight|WEIGHT|২.৫ কেজি|
+|Process Type  | Flag | Method (ToBN.getInstance().)| Output|
+|--|--|--|--|
+|Date | DATE | getDate(String date) |২০১৮-০৫-০৭|
+|Number| NUMBER | toBN.getNumber(String anyNumber) |৭৫|
+|Time| TIME | toBN.getNumber(String time) |০৫:০৭|
+|Amount | AMOUNT | getAmount(String amount) |৳ ৫৭|
+|Today | TODAY | getToday() |রবিবার|
+|Date Ordinal Indicator  | ORDINAL\_INDICATOR\_FOR_DATE | getOrdinalDate(String DDMMYYYY) |১৬ই ডিসেম্বর, ১৯৭১|
+|Number Ordinal Indicator |ORDINAL\_INDICATOR\_FOR\_NUMERIC\_ORDER | getOrdinalIndicator(String theNumber, ProcessType.ORDINAL_INDICATOR_FOR_NUMERIC_ORDER) |১৩ তম|
+|Today Ordinal Indicator  | ORDINAL\_INDICATOR\_TODAY | getTodayOrdinalDate() |০৭/০৫/২০১৮|
+|Current Time | TIME_NOW | getCurrentTime() |১২:০৯:২৫|
+|Distance|DISTANCE | getDistance(String distanceWithUnit) |২১ কিলোমিটার|
+|Weight|WEIGHT|getWeight(String weightWithUnit)|২.৫ কেজি|
 
-## **Run the sample project and have a look there.**
+## **Have a look @Sample project to explore more.**
