@@ -30,7 +30,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:' + project.ext.espresso
 
     compile project(':tobangla')
-//    implementation 'com.github.noman404:BanglaTextView:1.0.2'
-//    implementation 'com.github.noman404:BanglaTextView:1.0.3'
 
 }

@@ -96,8 +96,7 @@ public class BNTextView extends AppCompatTextView {
                 return;
 
             case AMOUNT:
-                String tk = "৳" + WHITE_SPACE;
-                super.setText(tk + toBN.getNumber(text));
+                super.setText(toBN.getAmount(text));
                 return;
 
             case ORDINAL_INDICATOR_FOR_DATE:
@@ -115,7 +114,7 @@ public class BNTextView extends AppCompatTextView {
                 return;
 
             case ORDINAL_INDICATOR_TODAY:
-                super.setText(toBN.getTodayDate());
+                super.setText(toBN.getTodayOrdinalDate());
                 return;
 
             case TODAY:
@@ -146,7 +145,7 @@ public class BNTextView extends AppCompatTextView {
 
     @NonNull
     private String getOrdinalDate(String text) {
-        String[] dates = new String[3];//YYYY-/.MM-/.DD
+        String[] dates = new String[3];//PATTERN YYYY-/.MM-/.DD
 
         if (text.contains("-")) {
             dates = text.split("-");

@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 
 import com.al.tobangla.utils.ProcessType;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -13,12 +12,13 @@ import java.util.Locale;
  * Created by Noman on 15/6/2015.
  *
  * @author al.noman.uap@gmail.com
- *
- * Converter class that provide conversion methods to achieve the BN data
+ *         <p>
+ *         Converter class that provide conversion methods to achieve the BN data
  */
-public class ToBN {
+public final class ToBN {
 
-    private static final String DD_MM_YYYY = "dd/MM/yyyy";
+    private static final String DD_MM_YYYY_SLASH = "dd/MM/yyyy";
+    private static final String YYYY_MM_DD_DASH = "yyyy-MM-dd";
     private static final String HH_MM_SS = "HH:mm:ss";
     private static final String invalidFormat = "Invalid Format";
 
@@ -87,9 +87,9 @@ public class ToBN {
     * @param character EN-US
     * @return BN numeric character
     */
-    private char numberConverter(final char en) {
+    private char numberConverter(final char enNumber) {
 
-        switch (en) {
+        switch (enNumber) {
             case '1':
                 return '১';
             case '2':
@@ -111,7 +111,7 @@ public class ToBN {
             case '0':
                 return '০';
             default:
-                return en;
+                return enNumber;
         }
     }
 
@@ -120,7 +120,15 @@ public class ToBN {
     * @return date in String UTF-8
     */
     public String getTodayDate() {
-        return changeByChar(new SimpleDateFormat(DD_MM_YYYY, Locale.getDefault()).format(Calendar.getInstance().getTime()));
+        return changeByChar(new SimpleDateFormat(DD_MM_YYYY_SLASH, Locale.getDefault()).format(Calendar.getInstance().getTime()));
+    }
+
+    /*
+    * get todays' date in bangla
+    * @return date in String UTF-8
+    */
+    public String getTodayOrdinalDate() {
+        return getBanglaOrdinalDate(new SimpleDateFormat(YYYY_MM_DD_DASH, Locale.getDefault()).format(Calendar.getInstance().getTime()));
     }
 
     /*
@@ -145,8 +153,8 @@ public class ToBN {
     * @param date in String EN-US
     * @return date in String UTF-8
     */
-    public String getDate(final String time) {
-        return changeByChar(time);
+    public String getDate(final String date) {
+        return changeByChar(date);
     }
 
     /*
@@ -161,7 +169,7 @@ public class ToBN {
 
     /*
     * Ordinal Indicators corresponds to the suffixes -st, -nd, -rd, -th
-    * @param the targer number pattern with those suffixes
+    * @param the target number pattern with those suffixes
     * @param calendar type | normal type
     * @return in BN
     */
@@ -273,12 +281,12 @@ public class ToBN {
     }
 
     /*
-    * @param Targer number in [0-9]+  -st, -nd, rd, -th
+    * @param Target number in [0-9]+  -st, -nd, rd, -th
     * @return in BN format normal format
     */
-    private String processForNumericOrdinalIndicator(String text) {
+    private String processForNumericOrdinalIndicator(String enNumber) {
 
-        int number = Integer.parseInt(text.replaceAll("\\D+", ""));
+        int number = Integer.parseInt(enNumber.replaceAll("\\D+", ""));
 
         if (number == 0 || number > 10) {
             return changeByChar("" + number) + "তম";
@@ -296,7 +304,7 @@ public class ToBN {
     }
 
     /*
-    * @param Targer number in [0-9]+  -st, -nd, rd, -th
+    * @param Target number in [0-9]+  -st, -nd, rd, -th
     * @return in BN format normal format
     */
     public String getNumericOrderIndicator(String digit) {
@@ -319,13 +327,13 @@ public class ToBN {
     }
 
     /*
-    * @param Targer number in [0-9]+  -st, -nd, rd, -th
+    * @param Target number in [0-9]+  -st, -nd, rd, -th
     * @return in BN format
     * @throws NumberFormatError
     */
-    private String processForDateTypeOrdinalIndicator(String text) throws NumberFormatException {
+    private String processForDateTypeOrdinalIndicator(String enNumber) throws NumberFormatException {
 
-        int number = Integer.parseInt(text.replaceAll("\\D+", ""));
+        int number = Integer.parseInt(enNumber.replaceAll("\\D+", ""));
 
         if (number == 0) {
             return changeByChar("" + number) + "তম";
@@ -345,7 +353,7 @@ public class ToBN {
     }
 
     /*
-        * @param Target number in [0-9]+  -st, -nd, rd, -th
+       * @param Target number in [0-9]+  -st, -nd, rd, -th
         * @return in BN format
         * @throws NumberFormatError
         */
@@ -395,31 +403,39 @@ public class ToBN {
     }
 
     /*
+      * @param number as string EN-US
+      * @return number as BN with BDT sign
+      */
+    public String getAmount(final String amount) {
+        return "৳ " + changeByChar(amount);
+    }
+
+    /*
     * @param EN format of weight as string EN-US
     * @return in BN format
     */
-    public String getWeight(String text) {
+    public String getWeight(String weightWithUnit) {
         try {
-            text = text.replace(" ", "");
-            String[] part = text.split("(?<=[0-9])(?=[a-zA-Z])");
+            weightWithUnit = weightWithUnit.replace(" ", "");
+            String[] part = weightWithUnit.split("(?<=[0-9])(?=[a-zA-Z])");
             StringBuilder converted = new StringBuilder("");
 
             if (part[0].trim().matches("[0-9.]*")) {
                 converted.append(getNumber(part[0])).append(" ");
             } else {
-                return text;
+                return weightWithUnit;
             }
 
             if (!part[1].trim().matches("[0-9.]*")) {
                 converted.append(convertWeightUnit(part[1]));
             } else {
-                return text;
+                return weightWithUnit;
             }
 
             return converted.toString();
 
         } catch (Exception error) {
-           return text;
+            return weightWithUnit;
         }
     }
 
@@ -427,9 +443,9 @@ public class ToBN {
     * @param EN format of weight unit as string EN-US
     * @return in BN format's unit
     */
-    public String convertWeightUnit(String weight) {
+    public String convertWeightUnit(String weightWithUnit) {
 
-        switch (weight.toLowerCase()) {
+        switch (weightWithUnit.toLowerCase()) {
 
             case "g":
             case "gram":
@@ -455,7 +471,7 @@ public class ToBN {
                 return "লিটার";
 
             default:
-                return weight;
+                return weightWithUnit;
 
         }
     }
@@ -464,28 +480,28 @@ public class ToBN {
     * @param EN format of distance as string EN-US
     * @return in BN format
     */
-    public String getDistance(String text) {
+    public String getDistance(String distanceWithUnit) {
         try {
-            text = text.replace(" ", "");
-            String[] part = text.split("(?<=[0-9])(?=[a-zA-Z])");
+            distanceWithUnit = distanceWithUnit.replace(" ", "");
+            String[] part = distanceWithUnit.split("(?<=[0-9])(?=[a-zA-Z])");
             StringBuilder converted = new StringBuilder("");
 
             if (part[0].matches("[0-9.]*")) {
                 converted.append(getNumber(part[0])).append(" ");
             } else {
-                return text;
+                return distanceWithUnit;
             }
 
             if (!part[1].matches("[0-9.]*")) {
                 converted.append(convertDistanceUnit(part[1]));
             } else {
-                return text;
+                return distanceWithUnit;
             }
 
             return converted.toString();
 
         } catch (Exception error) {
-            return text;
+            return distanceWithUnit;
         }
     }
 
@@ -493,9 +509,9 @@ public class ToBN {
    * @param EN format of distance unit as string EN-US
    * @return in BN format's unit
    */
-    public String convertDistanceUnit(String weight) {
+    public String convertDistanceUnit(String distanceWithUnit) {
 
-        switch (weight.toLowerCase()) {
+        switch (distanceWithUnit.toLowerCase()) {
 
             case "metre":
             case "m":
@@ -516,7 +532,7 @@ public class ToBN {
                 return "সেন্টিমিটার";
 
             default:
-                return weight;
+                return distanceWithUnit;
 
         }
     }
