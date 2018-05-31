@@ -17,7 +17,7 @@
 
 ## **Usage**
 
-From *.xml*
+**From *.xml***
 
     <com.al.tobangla.views.BNTextView  
       android:layout_width="wrap_content"  
@@ -25,13 +25,13 @@ From *.xml*
       android:text="21.00"  
       toBangla:processType="amount" />
       
-From Java
+**From Java**
 
     BNTextView bnTextView = new BNTextView(this);  
     bnTextView.setProcessType(ProcessType.AMOUNT);  
     bnTextView.setText("21.00");
     
-Direct Process 
+**Direct Process**
 
 *You can use your own `Textview` and use `ToBN` converter to do your own conversion.* `ToBN.getInstance()` provide the direct access of it's underhood methods to achieve more complex processing/conversion. [Please have a look @Sample](https://github.com/noman404/BanglaTextView/tree/master/sample-app).
 
