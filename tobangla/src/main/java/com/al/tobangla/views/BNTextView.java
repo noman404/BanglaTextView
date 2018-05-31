@@ -6,14 +6,13 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
-import android.widget.TextView;
 
 import com.al.tobangla.R;
 import com.al.tobangla.processor.ToBN;
 import com.al.tobangla.utils.ProcessType;
+import com.al.tobangla.utils.TypeFace;
 
 import static com.al.tobangla.utils.ProcessType.DEFAULT;
-import static com.al.tobangla.utils.ProcessType.NUMBER;
 import static com.al.tobangla.utils.ProcessType.ORDINAL_INDICATOR_FOR_DATE;
 import static com.al.tobangla.utils.ProcessType.ORDINAL_INDICATOR_FOR_NUMERIC_ORDER;
 
@@ -75,9 +74,14 @@ public class BNTextView extends AppCompatTextView {
             typedArray.recycle();
         }
 
+
+        setTypeface(TypeFace.getDefault(getContext()));
         setText(getText().toString());
     }
 
+    public void setTypeface(TypeFace.Name typeface) {
+        setTypeface(TypeFace.getTypeface(getContext(), typeface));
+    }
 
     public void setText(String text) {
 
