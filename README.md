@@ -60,4 +60,4 @@
 |Distance|DISTANCE | String getDistance(String distanceWithUnit) |২১ কিলোমিটার|
 |Weight|WEIGHT|String getWeight(String weightWithUnit)|২.৫ কেজি|
 
-## **Have a look @Sample project to explore more.**
+[## **Have a look @Sample project to explore more.**](https://github.com/noman404/BanglaTextView/tree/master/sample-app)
