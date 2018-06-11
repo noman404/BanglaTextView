@@ -1,4 +1,7 @@
 ## **BanglaTextView | Bangla Utils**
+
+It’s a tribute to the Bangla Language. It can convert some certain types of English patterns into Bengali format, for now i.e. Any Numbers, Date, Ordinal Indicator, Month, Year, Distance, Weight, Amounts. and many more. It also has an Android TextView that can convert the supported patterns directly.
+
 [![](https://jitpack.io/v/noman404/BanglaTextView.svg)](https://jitpack.io/#noman404/BanglaTextView)
 [![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-BanglaTextView-green.svg?style=flat )]( https://android-arsenal.com/details/1/6963)
 [![Build Status](https://travis-ci.org/noman404/BanglaTextView.svg?branch=master)](https://travis-ci.org/noman404/BanglaTextView)
@@ -34,7 +37,7 @@
     
 **Direct Process**
 
-*You can use your own `Textview` and use `ToBN` converter to do your own conversion.* `ToBN.getInstance()` provide the direct access of it's underhood methods to achieve more complex processing/conversion. [Please have a look @Sample](https://github.com/noman404/BanglaTextView/tree/master/sample-app).
+*You can use your own `Textview` and use `ToBN` converter to do your own conversion.* `ToBN.getInstance()` provide the direct access of it's underhood methods to achieve more complex processing/conversion. [Example](https://github.com/noman404/BanglaTextView/tree/master/sample-app).
 
 ## **Supported Conversions**
 
@@ -60,4 +63,4 @@
 |Distance|DISTANCE | String getDistance(String distanceWithUnit) |২১ কিলোমিটার|
 |Weight|WEIGHT|String getWeight(String weightWithUnit)|২.৫ কেজি|
 
-[## **Have a look @Sample project to explore more.**](https://github.com/noman404/BanglaTextView/tree/master/sample-app)
+[**Have a look @Sample project to explore more.**](https://github.com/noman404/BanglaTextView/tree/master/sample-app)
